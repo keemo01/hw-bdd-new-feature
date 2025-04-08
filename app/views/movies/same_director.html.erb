@@ -1,0 +1,26 @@
+<h2< Movies with the Same Director as <%= @movie.title %></h2>
+
+<% if @movies.present? %>
+  <table class="table able-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Rating</th>
+        <th>Release Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @movies.each do |m| %>
+        <tr>
+          <td><%= link_to m.title, movie_path(m) %> </td>
+          <td><%= m.rating %> </td>
+          <td><%= m.release_date %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No movies found qith the same director.</p>
+  <% end %>
+
+<%= link_to 'Back to All Movies', movies_path, class: 'btn btn-secondary' %>

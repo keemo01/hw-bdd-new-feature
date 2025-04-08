@@ -32,3 +32,15 @@ Scenario: can't find similar movies if we don't know director (sad path)
   When  I follow "Find Movies With Same Director"
   Then  I should be on the home page
   And   I should see "'Alien' has no director info"
+
+
+Scenario: Listing movies with the same director
+  Given the following movies exist:
+    | title     | rating  | director      | release_date |
+    | Star Wars | PG     | George Lucas | 1977-05-25   |
+    | THX-1138 | R     | George Lucas | 1971-03-11   |
+  When I go to the details page for "Star Wars"
+  And I follow "Find Movies With Same Director"
+  Then I should be on the Similar Movies page for "Star Wars"
+  And I should see "THX-1138"
+
