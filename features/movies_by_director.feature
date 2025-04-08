@@ -32,6 +32,7 @@ Scenario: can't find similar movies if we don't know director (sad path)
   When  I follow "Find Movies With Same Director"
   Then  I should be on the home page
   And   I should see "'Alien' has no director info"
+<<<<<<< HEAD
 
 
 Scenario: Listing movies with the same director
@@ -44,3 +45,5 @@ Scenario: Listing movies with the same director
   Then I should be on the Similar Movies page for "Star Wars"
   And I should see "THX-1138"
 
+=======
+>>>>>>> 6cbe8db3053db20fb7feed67ef7c2cb5cd040d38

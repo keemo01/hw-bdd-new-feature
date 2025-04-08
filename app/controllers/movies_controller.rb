@@ -37,6 +37,7 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
+<<<<<<< HEAD
   def same_director
     @movie = Movie.find(params[:id])
     if @movie.director.blank?
@@ -53,4 +54,12 @@ class MoviesController < ApplicationController
     params.require(:movie).permit(:title, :rating, :release_date, :director, :description)
   end
 
+=======
+  private
+
+  # Note - for Part 1, you may need to modify this method.
+  def movie_params
+    params.require(:movie).permit(:title, :rating, :description, :release_date)
+  end
+>>>>>>> 6cbe8db3053db20fb7feed67ef7c2cb5cd040d38
 end
