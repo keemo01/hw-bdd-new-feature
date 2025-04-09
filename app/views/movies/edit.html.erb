@@ -1,25 +1,29 @@
 <h2>Edit Existing Movie</h2>
-<%= form_tag movie_path(@movie), method: :put do %>
-  <%= label :movie, :title, 'Title', class: 'col-form-label' %>
-  <%= text_field :movie, 'title', class: 'form-control' %>
-<<<<<<< HEAD
- 
-  <%= label :movie, :rating, 'Rating', class: 'col-form-label' %>
-  <%= select :movie, :rating, ['G','PG','PG-13','R','NC-17'], {}, {class: 'form-control col-1'} %>
- 
-  <%= label :movie, :release_date, 'Released On', class: 'col-form-label' %>
-  <%= date_select :movie, :release_date, {}, class: 'form-control col-2 d-inline' %>
+<%= form_tag movie_path(@movie), method: :put, class: 'form' do %>
+  <div class="form-group">
+    <%= label_tag 'movie[title]', 'Title', class: 'col-form-label' %>
+    <%= text_field_tag 'movie[title]', @movie.title, class: 'form-control' %>
+  </div>
 
-  <%= label :movie, :director, 'Director', class: 'col-form-label' %>
-  <%= text_field :movie, :director, class: 'form-control' %>
+  <div class="form-group">
+    <%= label_tag 'movie[rating]', 'Rating', class: 'col-form-label' %>
+    <%= select_tag 'movie[rating]', options_for_select(['G','PG','PG-13','R','NC-17'], @movie.rating), class: 'form-control col-1' %>
+  </div>
 
-=======
-  <%= label :movie, :rating, 'Rating', class: 'col-form-label' %>
-  <%= select :movie, :rating, ['G','PG','PG-13','R','NC-17'], {}, {class: 'form-control col-1'} %>
-  <%= label :movie, :release_date, 'Released On', class: 'col-form-label' %>
-  <%= date_select :movie, :release_date, {}, class: 'form-control col-2 d-inline' %>
->>>>>>> 6cbe8db3053db20fb7feed67ef7c2cb5cd040d38
+  <div class="form-group">
+    <%= label_tag 'movie[release_date]', 'Released On', class: 'col-form-label' %>
+    <%= date_select 'movie', 'release_date', { default: @movie.release_date }, class: 'form-control col-2 d-inline' %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag 'movie[director]', 'Director', class: 'col-form-label' %>
+    <%= text_field_tag 'movie[director]', @movie.director, class: 'form-control' %>
+  </div>
+
   <br/>
-  <%= submit_tag 'Update Movie Info', class: 'btn btn-primary' %>
-  <%= link_to 'Cancel', movies_path, class: 'btn btn-secondary' %>
+
+  <div class="form-group">
+    <%= submit_tag 'Update Movie Info', class: 'btn btn-primary' %>
+    <%= link_to 'Cancel', movies_path, class: 'btn btn-secondary' %>
+  </div>
 <% end %>

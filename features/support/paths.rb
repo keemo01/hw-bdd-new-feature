@@ -13,7 +13,6 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
-<<<<<<< HEAD
     when /^the (RottenPotatoes )?home\s?page$/
       '/movies'
 
@@ -26,9 +25,7 @@ module NavigationHelpers
     
     when /^the Similar Movies page for "(.*)"$/
       same_director_movies_path(Movie.find_by(title: $1))
-=======
     when /^the (RottenPotatoes )?home\s?page$/ then '/movies'
->>>>>>> 6cbe8db3053db20fb7feed67ef7c2cb5cd040d38
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
